@@ -15,6 +15,7 @@ export default function Home() {
         />
         <p class="my-6">
           Welcome to `fresh`. Hi Stella, I've updated this message in .routes/index.tsx file.
+          Hello I've added something new.
         </p>
         <Counter start={3} />
       </div>

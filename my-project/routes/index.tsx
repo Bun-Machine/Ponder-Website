@@ -5,17 +5,16 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Fresh App</title>
+        <title>Ponder</title>
       </Head>
       <div class="p-4 mx-auto max-w-screen-md">
         <img
-          src="/logo.svg"
+          src="../static/deno-logo-beta2.png"
           class="w-32 h-32"
           alt="the fresh logo: a sliced lemon dripping with juice"
         />
         <p class="my-6">
-          Welcome to `fresh`. Hi Stella, I've updated this message in .routes/index.tsx file.
-          Hello I've added something new.
+          Come wander to Ponder!
         </p>
         <Counter start={3} />
       </div>

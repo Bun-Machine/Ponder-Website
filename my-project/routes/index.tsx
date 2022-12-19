@@ -12,38 +12,36 @@ type Props = {
   active: string;
 };
 
-import IconBrandDeno from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/brand-deno.tsx"
-
+import IconBrandDeno from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/brand-deno.tsx";
 
 import IconAlarm from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/alarm.tsx";
 import IconAirBalloon from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/air-balloon.tsx";
 import IconArmchair from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/armchair.tsx";
 import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/chevron-right.tsx";
 
-
 export default function Home() {
   return (
-    <>
+    <div class="bg-pink-400 flex-col items-center">
       <Head>
         <title>Ponder</title>
       </Head>
-      <Header/>
-      <NavBar/>
+      <NavBar />
+      <Header />
+
       <WelcomeArea />
-      <Intro />
+      {/* <Intro /> */}
       <Hero />
       <Features />
-      <GettingStarted />
-      <Examples />
-      
+      {
+        /* <GettingStarted />
+      <Examples /> */
+      }
+
       <Footer />
       {/* <SamTest /> */}
-
-      
-    </>
+    </div>
   );
 }
-
 
 // function NavBar() {
 //   return (
@@ -63,13 +61,13 @@ function Header({ active }: Props) {
     { name: "Home", href: "/" },
     { name: "Docs", href: "/docs" },
     { name: "GitHub", href: "https://github.com/oslabs-beta/Ponder" },
-    { name: "Deno Module", href: "https://deno.land/x/ponder/" }
+    { name: "Deno Module", href: "https://deno.land/x/ponder/" },
   ];
 
   return (
-    <div class="bg-white w-full max-w-screen-lg py-6 px-8 flex flex-col md:flex-row gap-4">
+    <div class="flex justify-center bg-white w-full py-6 px-8 flex flex-col md:flex-row gap-4 justify-center">
       <div class="flex items-center flex-1">
-      <IconBrandDeno class="w-6 h-6" />
+        <IconBrandDeno class="w-6 h-6" />
         <div class="text-2xl  ml-1 font-bold">
           Ponder
         </div>
@@ -93,42 +91,46 @@ function Header({ active }: Props) {
 
 function NavBar() {
   return (
-    <a
-      class="bg-green-400 text-black border(b green-500) p-3 text-center group"
-      href="https://deno.land/x/ponder/"
-    >
-      <b>Ponder v0.0.3.1</b> has been released, still in pre-production! <b>Use at your own Discretion!</b>
-      {" "}
-      <span class="group-hover:underline">→</span>
-    </a>
+    <div class="bg-green-400 justify-center flex">
+      <a
+        class="bg-green-400 text-black border(b green-500) p-3 text-center group"
+        href="https://deno.land/x/ponder/"
+      >
+        <b>Ponder v0.0.3.1</b> has been released, still in pre-production!{" "}
+        <b>Use at your own Discretion!</b>{" "}
+        <span class="group-hover:underline">→</span>
+      </a>
+    </div>
   );
 }
 
 function WelcomeArea() {
-  return(
+  return (
     <div class="p-4 mx-auto max-w-screen-md">
-        <img
-          src="/ponder1.png"
-          class="w-32 h-32"
-          alt="the Ponder logo: the Deno dinosaur pondering in front of two databases"
-        />
-        <p class="my-6">
-          Come wander to Ponder!
-        </p>
-        <Counter start={3} />
-      </div>
-  );
-};
-
-function Intro() {
-  return(
-    <div>
-      <div class="rounded-lg bg-green border-black">
-        <span class="bg-green-400 border-black border-4 rounded">Intro Area</span>
-      </div>
+      <img
+        src="/ponder1.png"
+        class="w-32 h-32"
+        alt="the Ponder logo: the Deno dinosaur pondering in front of two databases"
+      />
+      <p class="my-6">
+        Come wander to Ponder!
+      </p>
+      <Counter start={3} />
     </div>
-  )
+  );
 }
+
+// function Intro() {
+//   return (
+//     <div>
+//       <div class="rounded-lg bg-green border-black">
+//         <span class="bg-green-400 border-black border-4 rounded">
+//           Intro Area
+//         </span>
+//       </div>
+//     </div>
+//   );
+// }
 function Hero() {
   return (
     <div
@@ -167,17 +169,17 @@ function Features() {
     {
       icon: IconAlarm,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquam",
+        "Basic CRUD Functionality for PostGresSQL. Super lightweight: only the functionality you need.",
       link: "#",
     },
     {
       icon: IconAirBalloon,
       description:
-        "Nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, nunc ut aliquam aliquam, nunc nisl aliquet nisl, ",
+        "Database Introspection for seeing what's already in your Database.",
     },
     {
       icon: IconArmchair,
-      description: "Eget aliquam nisl nisl sit amet lorem.",
+      description: "Written 100% in TypeScript no complier needed.",
       link: "#",
     },
   ];
@@ -210,26 +212,25 @@ function Features() {
   );
 }
 
+// function GettingStarted() {
+//   return(
+//     <div>
+//       <div>
+//         Getting Started Area
+//       </div>
+//     </div>
+//   )
+// }
 
-function GettingStarted() {
-  return(
-    <div>
-      <div>
-        Getting Started Area
-      </div>
-    </div>
-  )
-}
-
-function Examples() {
-  return(
-    <div class="bg-gradient-to-r from-fuchsia-600 to-purple-600">
-      <div>
-        Examples
-      </div>
-    </div>
-  )
-}
+// function Examples() {
+//   return(
+//     <div class="bg-gradient-to-r from-fuchsia-600 to-purple-600">
+//       <div>
+//         Examples
+//       </div>
+//     </div>
+//   )
+// }
 
 // function Footer() {
 //   return(
@@ -263,10 +264,9 @@ function Footer({ children }: Props) {
   ];
 
   return (
-    <div class="bg-white flex flex-col md:flex-row w-full max-w-screen-lg gap-8 md:gap-16 px-8 py-8 text-sm">
+    <div class="bg-white flex flex-col md:flex-row w-full gap-8 md:gap-16 px-8 py-8 text-sm">
       <div class="flex-1">
         <div class="flex items-center gap-1">
-          
           <div class="font-bold text-2xl">
             Fresh
           </div>
@@ -311,7 +311,6 @@ function Footer({ children }: Props) {
   );
 }
 
-
 // function SamTest() {
 //   return(
 //     <div>
@@ -333,7 +332,7 @@ function Footer({ children }: Props) {
 //       <p class="pb-1">Last login: Wed Sep 25 09:11:04 on ttys002</p>
 //       <p class="pb-1">Laraben:Devprojects laraben$</p>
 //     </div>
-//   </div> 
+//   </div>
 // </div>
 //     </div>
 //   )

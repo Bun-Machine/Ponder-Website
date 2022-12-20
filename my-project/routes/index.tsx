@@ -11,9 +11,10 @@ type Props = {
   children: ComponentChildren;
   active: string;
 };
-
+import Icon3dCubeSphere from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/3d-cube-sphere.tsx"
 import IconBrandDeno from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/brand-deno.tsx";
-
+import IconInput from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/input-search.tsx";
+import tablerIconsTsx from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/database.tsx";
 import IconAlarm from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/alarm.tsx";
 import IconAirBalloon from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/air-balloon.tsx";
 import IconArmchair from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/armchair.tsx";
@@ -24,7 +25,7 @@ import * as Icons from "../components/Icons.tsx";
 
 export default function Home() {
   return (
-    <div class="bg-pink-400 flex-col items-center">
+    <div style="background-color: #f8d3cd"class="flex-col items-center">
       <Head>
         <title>Ponder</title>
       </Head>
@@ -68,10 +69,10 @@ function Header({ active }: Props) {
   ];
 
   return (
-    <div style="background:#e9cceb; color: #1C1922" class="flex justify-center w-full py-6 px-8 flex flex-col md:flex-row gap-4 justify-center">
+    <div style="background:#e6c3e7; color: #010203" class="flex justify-center w-full py-6 px-8 flex flex-col md:flex-row gap-4 justify-center">
       <div class="flex items-center flex-1">
         <IconBrandDeno class="w-6 h-6" />
-        <div class="text-2xl  ml-1 font-bold">
+        <div class="text-4xl  ml-1 font-bold">
           Ponder
         </div>
       </div>
@@ -109,7 +110,7 @@ function NavBar() {
 
 function WelcomeArea() {
   return (
-    <div class="flex flex-col items-center justify-center p-4 mx-auto ">
+    <div style="background-color: #fbd6c8" class="flex flex-col items-center justify-center p-4 mx-auto ">
       <h2 class="py-2 text(5xl sm:5xl lg:5xl gray-900) sm:tracking-tight sm:leading-[1.1]! font-extrabold">
             A <span class="text-purple-600">simple ORM</span> for PostGres, built for Deno.
           </h2>
@@ -118,9 +119,12 @@ function WelcomeArea() {
         class="w-120 h-120"
         alt="the Ponder logo: the Deno dinosaur pondering in front of two databases"
       />
-      <p class="my-6 text-4xl font-extrabold font-sans" >
+      {/* <p class="my-6 text-4xl font-extrabold font-sans" >
         Come wander to Ponder!
-      </p>
+      </p> */}
+      <h2 class="py-2 text(5xl sm:5xl lg:5xl gray-900) sm:tracking-tight sm:leading-[1.1]! font-extrabold">
+            Come wander into <span class="text-purple-600">Ponder</span>.
+          </h2>
       {/* <Counter start={3} /> */}
       
     </div>
@@ -140,8 +144,8 @@ function WelcomeArea() {
 // }
 function Hero() {
   return (
-    <div
-      class="w-full flex px-8 h-96 justify-center items-center flex-col gap-8 bg-cover bg-center bg-no-repeat bg-gray-100 rounded-xl text-white"
+    <div style="background-color: #3e334b"
+      class="w-full flex px-8 h-96 justify-center items-center flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl text-white"
       style="background-image:linear-gradient(rgba(0, 0, 40, 0.8),rgba(0, 0, 40, 0.8)), url('/gallery/hero-bg.webp');"
     >
       <div class="space-y-4 text-center">
@@ -174,13 +178,13 @@ function Hero() {
 function Features() {
   const featureItems = [
     {
-      icon: IconAlarm,
+      icon: tablerIconsTsx,
       description:
         "Basic CRUD Functionality for PostGresSQL. Super lightweight: only the functionality you need.",
       link: "#",
     },
     {
-      icon: IconAirBalloon,
+      icon: IconInput,
       description:
         "Database Introspection for seeing what's already in your Database.",
     },
@@ -192,11 +196,11 @@ function Features() {
   ];
 
   return (
-    <div class="flex flex-col md:flex-row gap-8 bg-white p-8">
+    <div style="background-color: #f8d3cd" class="flex flex-col md:flex-row gap-8 p-8">
       {featureItems.map((item) => {
         return (
           <div class="flex-1 space-y-2">
-            <div class="bg-blue-600 inline-block p-3 rounded-xl text-white">
+            <div class="bg-purple-600 inline-block p-3 rounded-xl text-white">
               <item.icon class="w-10 h-10" />
             </div>
             <p class="text-xl">
@@ -344,7 +348,7 @@ function Footer({ children }: Props) {
   ];
 
   return (
-    <div class="bg-white flex flex-col md:flex-row w-full gap-8 md:gap-16 px-8 py-8 text-sm">
+    <div style="background:#e6c3e7" class="flex flex-col md:flex-row w-full gap-8 md:gap-16 px-8 py-8 text-sm">
       <div class="flex-1">
         <div class="flex items-center gap-1">
           <div class="font-bold text-2xl">

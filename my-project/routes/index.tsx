@@ -60,10 +60,10 @@ export default function Home() {
 //   )
 // };
 
-function Header({ active }: Props) {
+export function Header({ active }: Props) {
   const menus = [
     { name: "Home", href: "/" },
-    { name: "Docs", href: "/docs" },
+    { name: "Docs", href: "/docsfolder/docshome" },
     { name: "GitHub", href: "https://github.com/oslabs-beta/Ponder" },
     { name: "Deno Module", href: "https://deno.land/x/ponder/" },
   ];
@@ -93,7 +93,7 @@ function Header({ active }: Props) {
   );
 }
 
-function NavBar() {
+export function NavBar() {
   return (
     <div class="bg-purple-400 justify-center flex border(b purple-500)">
       <a
@@ -108,21 +108,21 @@ function NavBar() {
   );
 }
 
-function WelcomeArea() {
+export function WelcomeArea() {
   return (
     <div style="background-color: #fbd6c8" class="flex flex-col items-center justify-center p-4 mx-auto ">
-      <h2 class="py-2 text(5xl sm:5xl lg:5xl gray-900) sm:tracking-tight sm:leading-[1.1]! font-extrabold">
+      <h2 class="py-2 text(4xl sm:4xl lg:4xl gray-900) sm:tracking-tight sm:leading-[1.1]! font-extrabold">
             A <span class="text-purple-600">simple ORM</span> for PostGres, built for Deno.
           </h2>
       <img
         src="/ponder1.png"
-        class="w-120 h-120"
+        class="w-90 h-90"
         alt="the Ponder logo: the Deno dinosaur pondering in front of two databases"
       />
       {/* <p class="my-6 text-4xl font-extrabold font-sans" >
         Come wander to Ponder!
       </p> */}
-      <h2 class="py-2 text(5xl sm:5xl lg:5xl gray-900) sm:tracking-tight sm:leading-[1.1]! font-extrabold">
+      <h2 class="py-2 text(4xl sm:4xl lg:4xl gray-900) sm:tracking-tight sm:leading-[1.1]! font-extrabold">
             Come wander into <span class="text-purple-600">Ponder</span>.
           </h2>
       {/* <Counter start={3} /> */}
@@ -142,17 +142,17 @@ function WelcomeArea() {
 //     </div>
 //   );
 // }
-function Hero() {
+export function Hero() {
   return (
     <div style="background-color: #3e334b"
       class="w-full flex px-8 h-96 justify-center items-center flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl text-white"
       style="background-image:linear-gradient(rgba(0, 0, 40, 0.8),rgba(0, 0, 40, 0.8)), url('/gallery/hero-bg.webp');"
     >
       <div class="space-y-4 text-center">
-        <h1 class="text-4xl inline-block font-bold">Object Relational Mapping Tool</h1>
-        <p class="text-xl max-w-lg text-blue-100">
-          Fresh Components is a collection of components built with Preact and
-          Tailwind CSS.
+        <h1 class="text-3xl inline-block font-bold">Object Relational Mapping Tool for Deno</h1>
+        <p class="text-xl max-w-lg text-blue-100 text-center">
+        Ponder is a third-party module available at deno.land. 
+        Simply import & export the dependency for use in your project.
         </p>
       </div>
 
@@ -161,21 +161,23 @@ function Hero() {
           href="#"
           class="block mt-4 text-blue-500 cursor-pointer inline-flex items-center group text-blue-800 bg-white px-8 py-2 rounded-md hover:bg-blue-50 font-bold"
         >
-          Sign Up{" "}
+          Documentation{" "}
+          <IconChevronRight class="inline-block w-5 h-5 transition group-hover:translate-x-0.5" />
+
         </a>
-        <a
+        {/* <a
           href="#"
           class="block mt-4 transition-colors text-blue-400 cursor-pointer inline-flex items-center group px-4 py-2 hover:text-blue-100"
         >
           Documentation{" "}
           <IconChevronRight class="inline-block w-5 h-5 transition group-hover:translate-x-0.5" />
-        </a>
+        </a> */}
       </div>
     </div>
   );
 }
 
-function Features() {
+export function Features() {
   const featureItems = [
     {
       icon: tablerIconsTsx,
@@ -203,7 +205,7 @@ function Features() {
             <div class="bg-purple-600 inline-block p-3 rounded-xl text-white">
               <item.icon class="w-10 h-10" />
             </div>
-            <p class="text-xl">
+            <p class="text-l">
               {item.description}
             </p>
 
@@ -223,7 +225,7 @@ function Features() {
   );
 }
 
-function GettingStarted(props: { origin: string }) {
+export function GettingStarted(props: { origin: string }) {
   return (
     <section class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
       <h2 id="getting-started" class="text(3xl gray-600) font-bold">
@@ -306,36 +308,13 @@ function GettingStarted(props: { origin: string }) {
   );
 }
 
-// function Examples() {
-//   return(
-//     <div class="bg-gradient-to-r from-fuchsia-600 to-purple-600">
-//       <div>
-//         Examples
-//       </div>
-//     </div>
-//   )
-// }
-
-// function Footer() {
-//   return(
-//     <div style="background-color: lightgrey;">
-//       <div>
-//         Footer
-//       </div>
-//     </div>
-//   )
-// }
-
-function Footer({ children }: Props) {
+export function Footer({ children }: Props) {
   const menus = [
     {
       title: "Documentation",
       children: [
         { name: "Getting Started", href: "#" },
         { name: "Guide", href: "#" },
-        { name: "API", href: "#" },
-        { name: "Showcase", href: "#" },
-        { name: "Pricing", href: "#" },
       ],
     },
     {
@@ -380,12 +359,13 @@ function Footer({ children }: Props) {
 
       <div class="text-gray-500 space-y-2">
         <div class="text-xs">
-          Copyright © 2020 DenoLand<br />
+          Copyright © 2022 Ponder<br />
           All right reserved.
         </div>
 
         <a
-          href="https://github.com/denoland/fresh"
+          href="https://github.com/oslabs-beta/Ponder"
+          target="_blank"
           class="inline-block hover:text-black"
         >
           <BrandGithub />

@@ -57,7 +57,7 @@ export function DocsWelcome() {
       <img
         id="mainLogoTop"
         src="/ponder1.png"
-        class="w-40 h-40 flex-grow"
+        class="w-40 h-40"
         alt="the Ponder logo: the Deno dinosaur pondering in front of two databases"
       />
       <h2 class="py-2 text(4xl sm:4xl lg:4xl gray-900) sm:tracking-tight sm:leading-[1.1]! font-extrabold shrink">
@@ -99,15 +99,15 @@ export function DocsTableOfContents() {
     { name: "Deno Module", href: "https://deno.land/x/ponder/" },
   ];
   const docsMapped = tableOfDocs.map((el) => (
-    <li>
+    <li class="list-decimal hover:text-purple-900 hover:bg-pink-200" >
       <a href={el.href}>{el.name}</a>
     </li>
   ));
 
   return (
-    <section  class="m-3 fixed">
-      <h3 id="tableOfContents"><a href="#mainLogoTop">Table Of Contents</a></h3>
-      <ul>
+    <section  class="m-12 fixed">
+      <h3 id="tableOfContents" class="text-2xl"><a href="#mainLogoTop">Table Of Contents</a></h3>
+      <ul class="list-inside">
         {docsMapped}
       </ul>
     </section>

@@ -13,6 +13,7 @@ import IconAirBalloon from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/air-b
 import IconArmchair from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/armchair.tsx";
 import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/chevron-right.tsx";
 import CopyArea from "../islands/CopyArea.tsx";
+import IconScale from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/scale.tsx";
 import * as Icons from "../components/Icons.tsx";
 
 type Props = {
@@ -31,7 +32,8 @@ export default function Home() {
       <Header />
       <WelcomeArea />
       <Hero />
-      <Features />
+      <FeaturesOne />
+      <FeaturesTwo />
       <GettingStarted />
       <Footer />
       {/* <SamTest /> */}
@@ -43,7 +45,7 @@ export default function Home() {
 
 export function NavBar() {
   return (
-    <div class="bg-purple-400 justify-center flex border(b purple-500)">
+    <div class="bg-purple-400 justify-center flex border(b purple-500) hover:underline">
       <a
         class="bg-purple-400 text-black p-3 text-center group"
         href="https://deno.land/x/ponder/"
@@ -80,7 +82,7 @@ export function Header({ active }: Props) {
           <li>
             <a
               href={menu.href}
-              class={"hover: text-gray-700 py-1 border-gray-500" +
+              class={"text-gray-700 hover:text-purple-900 py-1 border-gray-500" +
                 (menu.href === active ? " font-bold border-b-2" : "")}
             >
               {menu.name}
@@ -158,12 +160,12 @@ export function Hero() {
 
 //--------------------Features--------------------//
 
-export function Features() {
+export function FeaturesOne() {
   const featureItems = [
     {
       icon: tablerIconsTsx,
       description:
-        "Basic CRUD Functionality for PostGresSQL. Super lightweight: only the functionality you need.",
+        "Basic CRUD Functionality for PostGresSQL.",
       link: "/docsfolder/docshome",
     },
     {
@@ -179,7 +181,58 @@ export function Features() {
   ];
 
   return (
-    <div style="background-color: #f8d3cd" class="flex flex-col md:flex-row gap-8 p-8">
+    <section class="max-w-screen-lg mx-auto my-16 px(4 sm:6 md:8) space-y-4">
+    <div style="background-color: #f8d3cd" class="flex flex-row md:flex-row gap-6 p-6">
+      {featureItems.map((item) => {
+        return (
+          <div class="flex-1 space-y-2 flex-col justify-center items-center">
+            <div class="flex bg-purple-600 inline-block p-3 rounded-xl text-white">
+              <item.icon class="self-center w-10 h-10 transition hover:translate-x-0.5 " />
+            </div>
+            <p class="text-l">
+              {item.description}
+            </p>
+
+            {item.link &&
+              (
+                <a class="block" href={item.link}>
+                  <p class="text-blue-500 cursor-pointer hover:underline inline-flex items-center group">
+                    Read More{" "}
+                    <IconChevronRight class="inline-block w-5 h-5 transition group-hover:translate-x-0.5" />
+                  </p>
+                </a>
+              )}
+          </div>
+        );
+      })}
+    </div>
+    </section>
+  );
+}
+
+export function FeaturesTwo() {
+  const featureItems = [
+    {
+      icon: IconScale,
+      description:
+        "Super lightweight: only the functionality you need.",
+      link: "/docsfolder/docshome",
+    },
+    {
+      icon: IconInput,
+      description:
+        "Database Introspection for seeing what's already in your Database.",
+    },
+    {
+      icon: IconArmchair,
+      description: "Written 100% in TypeScript no complier needed.",
+      link: "/docsfolder/docshome",
+    },
+  ];
+
+  return (
+    <section class="max-w-screen-lg mx-auto my-16 px(4 sm:6 md:8) space-y-4">
+    <div style="background-color: #f8d3cd" class="flex flex-col md:flex-row gap-6 p-6 max-w-6xl">
       {featureItems.map((item) => {
         return (
           <div class="flex-1 space-y-2">
@@ -203,6 +256,7 @@ export function Features() {
         );
       })}
     </div>
+    </section>
   );
 }
 

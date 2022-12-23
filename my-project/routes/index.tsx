@@ -2,15 +2,8 @@ import { Head } from "$fresh/runtime.ts";
 import Counter from "../islands/Counter.tsx";
 // import { NavBar } from "../components/NavBar.tsx"
 // import * as styles from "../static/styles.css"
-
 import { ComponentChildren } from "preact";
-// import LemonIcon from "https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/lemon-2.tsx";
 import BrandGithub from "https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-github.tsx";
-
-type Props = {
-  children: ComponentChildren;
-  active: string;
-};
 import Icon3dCubeSphere from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/3d-cube-sphere.tsx"
 import IconBrandDeno from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/brand-deno.tsx";
 import IconInput from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/input-search.tsx";
@@ -19,9 +12,14 @@ import IconAlarm from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/alarm.tsx"
 import IconAirBalloon from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/air-balloon.tsx";
 import IconArmchair from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/armchair.tsx";
 import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/chevron-right.tsx";
-
 import CopyArea from "../islands/CopyArea.tsx";
 import * as Icons from "../components/Icons.tsx";
+
+type Props = {
+  children: ComponentChildren;
+  active: string;
+};
+
 
 export default function Home() {
   return (
@@ -31,15 +29,9 @@ export default function Home() {
       </Head>
       <NavBar />
       <Header />
-
       <WelcomeArea />
-      {/* <Intro /> */}
       <Hero />
       <Features />
-      {
-        /* <GettingStarted />
-      <Examples /> */
-      }
       <GettingStarted />
       <Footer />
       {/* <SamTest /> */}
@@ -47,51 +39,7 @@ export default function Home() {
   );
 }
 
-// function NavBar() {
-//   return (
-//     <div  class="bg-pink-400">
-//       <div>
-//         I'm a div
-//         make it a cool color
-//         have main page link
-//         docs page link
-//       </div>
-//     </div>
-//   )
-// };
-
-export function Header({ active }: Props) {
-  const menus = [
-    { name: "Home", href: "/" },
-    { name: "Docs", href: "/docsfolder/docshome" },
-    { name: "GitHub", href: "https://github.com/oslabs-beta/Ponder" },
-    { name: "Deno Module", href: "https://deno.land/x/ponder/" },
-  ];
-
-  return (
-    <div style="background:#e6c3e7; color: #010203" class="flex justify-center w-full py-6 px-8 flex flex-col md:flex-row gap-4 justify-center">
-      <div class="flex items-center flex-1">
-        <IconBrandDeno class="w-6 h-6" />
-        <div class="text-4xl  ml-1 font-bold">
-          Ponder
-        </div>
-      </div>
-      <ul class="flex items-center gap-6">
-        {menus.map((menu) => (
-          <li>
-            <a
-              href={menu.href}
-              class={"hover:text-gray-700 py-1 border-gray-500" +
-                (menu.href === active ? " font-bold border-b-2" : "")}
-            >
-              {menu.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+//--------------------NavBar--------------------//
 
 export function NavBar() {
   return (
@@ -107,6 +55,45 @@ export function NavBar() {
     </div>
   );
 }
+
+
+//--------------------Header--------------------//
+
+export function Header({ active }: Props) {
+  const menus = [
+    { name: "Home", href: "/" },
+    { name: "Docs", href: "/docsfolder/docshome" },
+    { name: "GitHub", href: "https://github.com/oslabs-beta/Ponder" },
+    { name: "Deno Module", href: "https://deno.land/x/ponder/" },
+  ];
+
+  return (
+    <div style="background:#e6c3e7; color: #010203" class="flex justify-center w-full py-6 px-8 flex flex-col md:flex-row gap-4 justify-center">
+      <div class="flex items-center flex-1">
+        <IconBrandDeno class="w-8 h-8" />
+        <div class="text-3xl  ml-1 font-bold">
+          Ponder
+        </div>
+      </div>
+      <ul class="flex items-center gap-6">
+        {menus.map((menu) => (
+          <li>
+            <a
+              href={menu.href}
+              class={"hover: text-gray-700 py-1 border-gray-500" +
+                (menu.href === active ? " font-bold border-b-2" : "")}
+            >
+              {menu.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+
+//--------------------Welcome Area--------------------//
 
 export function WelcomeArea() {
   return (
@@ -131,17 +118,8 @@ export function WelcomeArea() {
   );
 }
 
-// function Intro() {
-//   return (
-//     <div>
-//       <div class="rounded-lg bg-green border-black">
-//         <span class="bg-green-400 border-black border-4 rounded">
-//           Intro Area
-//         </span>
-//       </div>
-//     </div>
-//   );
-// }
+//--------------------Description Box--------------------//
+
 export function Hero() {
   return (
     <div style="background-color: #3e334b"
@@ -158,7 +136,7 @@ export function Hero() {
 
       <div>
         <a
-          href="#"
+          href="/docsfolder/docshome"
           class="block mt-4 text-blue-500 cursor-pointer inline-flex items-center group text-blue-800 bg-white px-8 py-2 rounded-md hover:bg-blue-50 font-bold"
         >
           Documentation{" "}
@@ -173,9 +151,12 @@ export function Hero() {
           <IconChevronRight class="inline-block w-5 h-5 transition group-hover:translate-x-0.5" />
         </a> */}
       </div>
+     
     </div>
   );
 }
+
+//--------------------Features--------------------//
 
 export function Features() {
   const featureItems = [
@@ -183,7 +164,7 @@ export function Features() {
       icon: tablerIconsTsx,
       description:
         "Basic CRUD Functionality for PostGresSQL. Super lightweight: only the functionality you need.",
-      link: "#",
+      link: "/docsfolder/docshome",
     },
     {
       icon: IconInput,
@@ -193,7 +174,7 @@ export function Features() {
     {
       icon: IconArmchair,
       description: "Written 100% in TypeScript no complier needed.",
-      link: "#",
+      link: "/docsfolder/docshome",
     },
   ];
 
@@ -203,7 +184,7 @@ export function Features() {
         return (
           <div class="flex-1 space-y-2">
             <div class="bg-purple-600 inline-block p-3 rounded-xl text-white">
-              <item.icon class="w-10 h-10" />
+              <item.icon class="w-10 h-10 transition hover:translate-x-0.5" />
             </div>
             <p class="text-l">
               {item.description}
@@ -224,6 +205,9 @@ export function Features() {
     </div>
   );
 }
+
+
+//--------------------Getting Started Section--------------------//
 
 export function GettingStarted(props: { origin: string }) {
   return (
@@ -283,16 +267,6 @@ export function GettingStarted(props: { origin: string }) {
 
       <CopyArea>{"const inserted = await ponderDB1.insertIntoTable('people', ['name', 'hair_color'], ['Corey', 'red-brown']);"}</CopyArea>
 
-      {/* <p class="text-gray-600">
-        You can now open{" "}
-        <a
-          href="http://localhost:8000"
-          class="text-blue-600 hover:underline"
-        >
-          http://localhost:8000
-        </a>{" "}
-        in your browser to view the page.
-  </p>}}*/}
       <p class="text-gray-600"> 
         A more in-depth{" "}
         <a
@@ -302,11 +276,14 @@ export function GettingStarted(props: { origin: string }) {
           <i>Getting Started</i>
         </a>{" "}
         guide is available in{" "}
-        <a href="/docs" class="text-blue-600 hover:underline">the docs</a>.
+        <a href="/docsfolder/docshome" class="text-blue-600 hover:underline">the docs</a>.
       </p>
     </section>
   );
 }
+
+
+//--------------------Footer--------------------//
 
 export function Footer({ children }: Props) {
   const menus = [

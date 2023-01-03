@@ -390,8 +390,7 @@ export function Footer({ children }: Props) {
 
       <div class="text-gray-500 space-y-2">
         <div class="text-xs">
-          Copyright © 2022 Ponder<br />
-          All right reserved.
+          Made by Ponder.
         </div>
 
         <a

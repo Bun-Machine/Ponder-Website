@@ -1,18 +1,15 @@
 import { Head } from "$fresh/runtime.ts";
-// import { NavBar } from "../components/NavBar.tsx"
-// import * as styles from "../static/styles.css"
 import { ComponentChildren } from "preact";
 import BrandGithub from "https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-github.tsx";
-import Icon3dCubeSphere from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/3d-cube-sphere.tsx"
 import IconBrandDeno from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/brand-deno.tsx";
 import IconInput from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/input-search.tsx";
 import tablerIconsTsx from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/database.tsx";
-import IconAlarm from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/alarm.tsx";
-import IconAirBalloon from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/air-balloon.tsx";
 import IconArmchair from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/armchair.tsx";
 import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/chevron-right.tsx";
 import CopyArea from "../islands/CopyArea.tsx";
+import IconAccess from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/access-point.tsx";
 import IconScale from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/scale.tsx";
+import IconTest from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/test-pipe.tsx";
 import * as Icons from "../components/Icons.tsx";
 
 type Props = {
@@ -35,7 +32,6 @@ export default function Home() {
       <FeaturesTwo />
       <GettingStarted />
       <Footer />
-      {/* <SamTest /> */}
     </div>
   );
 }
@@ -49,7 +45,7 @@ export function NavBar() {
         class="bg-purple-400 text-black p-3 text-center group"
         href="https://deno.land/x/ponder/"
       >
-        <b>Ponder v0.0.3.1</b> has been released, still in pre-production!{" "}
+        <b>Ponder v0.1.0</b> has been released, still in pre-production!{" "}
         <b>Use at your own Discretion!</b>{" "}
         <span class="group-hover:underline">→</span>
       </a>
@@ -107,14 +103,9 @@ export function WelcomeArea() {
         class="w-90 h-90"
         alt="the Ponder logo: the Deno dinosaur pondering in front of two databases"
       />
-      {/* <p class="my-6 text-4xl font-extrabold font-sans" >
-        Come wander to Ponder!
-      </p> */}
       <h2 class="py-2 text(4xl sm:4xl lg:4xl gray-900) sm:tracking-tight sm:leading-[1.1]! font-extrabold">
             Come wander into <span class="text-purple-600">Ponder</span>.
           </h2>
-      {/* <Counter start={3} /> */}
-      
     </div>
   );
 }
@@ -144,13 +135,6 @@ export function Hero() {
           <IconChevronRight class="inline-block w-5 h-5 transition group-hover:translate-x-0.5" />
 
         </a>
-        {/* <a
-          href="#"
-          class="block mt-4 transition-colors text-blue-400 cursor-pointer inline-flex items-center group px-4 py-2 hover:text-blue-100"
-        >
-          Documentation{" "}
-          <IconChevronRight class="inline-block w-5 h-5 transition group-hover:translate-x-0.5" />
-        </a> */}
       </div>
      
     </div>
@@ -164,7 +148,7 @@ export function FeaturesOne() {
     {
       icon: tablerIconsTsx,
       description:
-        "Basic CRUD Functionality for PostGreSQL.",
+        "Basic CRUD Functionality for PostGreSQL including Managing Tables.",
       link: "/docsfolder/docshome",
     },
     {
@@ -218,13 +202,13 @@ export function FeaturesTwo() {
       link: "/docsfolder/docshome",
     },
     {
-      icon: IconInput,
+      icon: IconAccess ,
       description:
         "Ponder can create model instances from your database.",
     },
     {
-      icon: IconArmchair,
-      description: "Written 100% in TypeScript no complier needed.",
+      icon: IconTest,
+      description: "Built-in testing tool available through Deno",
       link: "/docsfolder/docshome",
     },
   ];
@@ -350,8 +334,8 @@ export function Footer({ children }: Props) {
     {
       title: "Community",
       children: [
-        { name: "Forum", href: "#" },
-        { name: "Discord", href: "#" },
+        { name: "Forum", href: "https://discord.gg/WgtNTNVS" },
+        { name: "Discord", href: "https://discord.gg/WgtNTNVS" },
       ],
     },
   ];
@@ -404,29 +388,3 @@ export function Footer({ children }: Props) {
   );
 }
 
-// function SamTest() {
-//   return(
-//     <div>
-//       <div class="w-1/2 mx-auto">
-//   <div class="w-full shadow-2xl subpixel-antialiased rounded h-64 bg-black border-black mx-auto">
-//     <div class="flex items-center h-6 rounded-t bg-gray-100 border-b border-gray-500 text-center text-black" id="headerTerminal">
-//       <div class="flex ml-2 items-center text-center border-red-900 bg-red-500 shadow-inner rounded-full w-3 h-3" id="closebtn">
-//       </div>
-//       <div class="ml-2 border-yellow-900 bg-yellow-500 shadow-inner rounded-full w-3 h-3" id="minbtn">
-//       </div>
-//       <div class="ml-2 border-green-900 bg-green-500 shadow-inner rounded-full w-3 h-3" id="maxbtn">
-//       </div>
-//       <div class="mx-auto pr-16" id="terminaltitle">
-//         <p class="text-center text-sm">Terminal</p>
-//       </div>
-
-//     </div>
-//     <div class="pl-1 pt-1 h-auto  text-green-200 font-mono text-xs bg-black" id="console">
-//       <p class="pb-1">Last login: Wed Sep 25 09:11:04 on ttys002</p>
-//       <p class="pb-1">Laraben:Devprojects laraben$</p>
-//     </div>
-//   </div>
-// </div>
-//     </div>
-//   )
-// }

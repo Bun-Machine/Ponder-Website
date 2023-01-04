@@ -1,6 +1,7 @@
 // routes/docsfolder/docshome.tsx
 
 import { Head } from "$fresh/runtime.ts";
+import CopyArea from "../../islands/CopyArea.tsx";
 import {
   Footer,
   GettingStarted,
@@ -119,35 +120,13 @@ export function IntroDoc() {
     <section id="introDoc" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
       <h1 class="text(3xl gray-600) font-bold">Intro</h1>
       <p>
-        Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla.
-        Neque sodales ut etiam sit amet nisl purus. Est lorem ipsum dolor sit
-        amet consectetur adipiscing. Lacus laoreet non curabitur gravida.
-        Facilisis mauris sit amet massa vitae tortor. Vulputate ut pharetra sit
-        amet aliquam id. Sit amet consectetur adipiscing elit pellentesque. Nisl
-        rhoncus mattis rhoncus urna neque viverra justo. Egestas sed tempus urna
-        et. Pulvinar pellentesque habitant morbi tristique senectus et netus et
-        malesuada. Tempor nec feugiat nisl pretium fusce id velit. Neque gravida
-        in fermentum et sollicitudin ac. Enim lobortis scelerisque fermentum dui
-        faucibus. Lorem mollis aliquam ut porttitor leo a diam sollicitudin. Ac
-        felis donec et odio pellentesque diam volutpat. Volutpat consequat
-        mauris nunc congue nisi.
+      Ponder is an ORM for PostGres using the Deno runtime, eliminating the need for developers to spend valuable time writing complex SQL queries.
 
-        Morbi enim nunc faucibus a pellentesque sit amet porttitor. Tellus
-        integer feugiat scelerisque varius morbi enim nunc. Pellentesque
-        habitant morbi tristique senectus et netus et. Morbi quis commodo odio
-        aenean sed adipiscing diam donec. Dictumst quisque sagittis purus sit
-        amet volutpat. Netus et malesuada fames ac turpis egestas sed tempus.
-        Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Felis
-        eget velit aliquet sagittis id consectetur purus ut faucibus. Diam quis
-        enim lobortis scelerisque fermentum dui. Ac turpis egestas sed tempus
-        urna et. Amet mattis vulputate enim nulla aliquet porttitor. Non odio
-        euismod lacinia at quis risus sed vulputate odio. Amet porttitor eget
-        dolor morbi non arcu. Purus in massa tempor nec feugiat nisl. Habitant
-        morbi tristique senectus et netus et malesuada fames. Egestas diam in
-        arcu cursus. Egestas tellus rutrum tellus pellentesque eu tincidunt
-        tortor aliquam. Elit scelerisque mauris pellentesque pulvinar
-        pellentesque. In est ante in nibh mauris. Nisl vel pretium lectus quam
-        id.
+      <h3 class="text(xl gray-600) font-bold">How to add to your Project</h3>
+      To use, please import the Ponder URI. You now have access to all the methods on the "ponder" object!
+      <CopyArea>
+      import * as ponder from "https://deno.land/x/ponder/";
+      </CopyArea>
       </p>
       </section>
   );

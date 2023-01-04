@@ -1,5 +1,4 @@
 import { Head } from "$fresh/runtime.ts";
-import Counter from "../islands/Counter.tsx";
 // import { NavBar } from "../components/NavBar.tsx"
 // import * as styles from "../static/styles.css"
 import { ComponentChildren } from "preact";

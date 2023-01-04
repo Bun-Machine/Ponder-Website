@@ -21,19 +21,12 @@ export default function DocsHome() {
       <Header />
 
       <DocsWelcome />
-      {/* <WelcomeArea /> */}
-      {/* <Intro /> */}
-      {/* <Hero /> */}
-      {/* <Features /> */}
-      {
-        /* <GettingStarted />
-        <Examples /> */
-      }
 
       <DocsTableOfContents />
 
       <IntroDoc />
       <GettingStartedDoc />
+      <ConnectingYourDB />
       <BasicCRUD />
       <ManagingTables />
       <DatabaseIntrospection />
@@ -42,7 +35,6 @@ export default function DocsHome() {
       <ExampleDoc />
       <AboutDoc />
       <Footer />
-      {/* <SamTest /> */}
     </div>
   );
 }
@@ -66,17 +58,6 @@ export function DocsWelcome() {
         for Ponder. Click on any section to jump to the{" "}
         <span class="text-purple-600">documentation</span>.
       </h2>
-      {
-        /* <p class="my-6 text-4xl font-extrabold font-sans" >
-          Come wander to Ponder!
-        </p> */
-      }
-      {
-        /* <h2 class="py-2 text(4xl sm:4xl lg:4xl gray-900) sm:tracking-tight sm:leading-[1.1]! font-extrabold">
-              Click on any section to jump to the <span class="text-purple-600">documentation</span>.
-            </h2> */
-      }
-      {/* <Counter start={3} /> */}
     </div>
   );
 }
@@ -84,7 +65,8 @@ export function DocsWelcome() {
 export function DocsTableOfContents() {
   const tableOfDocs = [
     { name: "Intro", href: "#introDoc" },
-    { name: "Getting Started", href: "#gettingStarted" },
+    { name: "Getting Started", href: "#gettingStarted" },    
+    { name: "Connecting Your Database", href: "#connectingDB" },
     { name: "Basic CRUD", href: "#basicCRUD" },
     { name: "Managing Tables", href: "#managingTables" },
     { name: "Database Introspection", href: "#databaseIntrospection" },
@@ -122,6 +104,11 @@ export function IntroDoc() {
       <p>
       Ponder is an ORM for PostGres using the Deno runtime, eliminating the need for developers to spend valuable time writing complex SQL queries.
 
+      <h3 class="text(xl gray-600) font-bold">Features</h3>
+      -Basic CRUD functionality for interacting with your PostGRES Database<br></br>
+      -Introspect database and modify database tables through models in accordance with principles of OOP<br></br>
+      -Introspect your database for a visual representation of your tables
+
       <h3 class="text(xl gray-600) font-bold">How to add to your Project</h3>
       To use, please import the Ponder URI. You now have access to all the methods on the "ponder" object!
       <CopyArea>
@@ -140,40 +127,100 @@ export function GettingStartedDoc() {
   );
 }
 
+
+
+export function ConnectingYourDB() {
+  const copy1 = "import { poolConnection } from'./deps.ts"
+  return (
+    <section id="connectingDB" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
+      <h1 class="text(3xl gray-600) font-bold">Connecting Your Database</h1>
+      <p>
+      Create a new instance of poolConnection passing in the database connection string. By default, the number of pool connections is set to three and lazy loading is enabled. Users may also specify the number of server connections and whether the loading type is lazy. 
+
+      <CopyArea>
+        {copy1}
+      </CopyArea>
+      With default three connections and lazy loading:
+      <CopyArea>
+      const ponder = new poolConnection('PG_URI') 
+      </CopyArea>
+      With five connections and lazy loading disabled:
+      <CopyArea> 
+      const ponder = new poolConnection('PG_URI', 5, false) 
+      </CopyArea>
+      </p>
+      </section>
+  );
+}
+
 export function BasicCRUD() {
   return (
     <section id="basicCRUD" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
       <h2 class="text(3xl gray-600) font-bold">BasicCRUD</h2>
-      <p>
-        Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla.
-        Neque sodales ut etiam sit amet nisl purus. Est lorem ipsum dolor sit
-        amet consectetur adipiscing. Lacus laoreet non curabitur gravida.
-        Facilisis mauris sit amet massa vitae tortor. Vulputate ut pharetra sit
-        amet aliquam id. Sit amet consectetur adipiscing elit pellentesque. Nisl
-        rhoncus mattis rhoncus urna neque viverra justo. Egestas sed tempus urna
-        et. Pulvinar pellentesque habitant morbi tristique senectus et netus et
-        malesuada. Tempor nec feugiat nisl pretium fusce id velit. Neque gravida
-        in fermentum et sollicitudin ac. Enim lobortis scelerisque fermentum dui
-        faucibus. Lorem mollis aliquam ut porttitor leo a diam sollicitudin. Ac
-        felis donec et odio pellentesque diam volutpat. Volutpat consequat
-        mauris nunc congue nisi.
 
-        Morbi enim nunc faucibus a pellentesque sit amet porttitor. Tellus
-        integer feugiat scelerisque varius morbi enim nunc. Pellentesque
-        habitant morbi tristique senectus et netus et. Morbi quis commodo odio
-        aenean sed adipiscing diam donec. Dictumst quisque sagittis purus sit
-        amet volutpat. Netus et malesuada fames ac turpis egestas sed tempus.
-        Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Felis
-        eget velit aliquet sagittis id consectetur purus ut faucibus. Diam quis
-        enim lobortis scelerisque fermentum dui. Ac turpis egestas sed tempus
-        urna et. Amet mattis vulputate enim nulla aliquet porttitor. Non odio
-        euismod lacinia at quis risus sed vulputate odio. Amet porttitor eget
-        dolor morbi non arcu. Purus in massa tempor nec feugiat nisl. Habitant
-        morbi tristique senectus et netus et malesuada fames. Egestas diam in
-        arcu cursus. Egestas tellus rutrum tellus pellentesque eu tincidunt
-        tortor aliquam. Elit scelerisque mauris pellentesque pulvinar
-        pellentesque. In est ante in nibh mauris. Nisl vel pretium lectus quam
-        id.
+      <p>
+        
+      <h3 class="text(xl gray-600) font-bold">Find a Table</h3>
+      <span class="font-semibold">findAllinOne</span>(table: string): returns all data from all rows of a table. Returns an array with an object containing all data on the 'people' table
+      <CopyArea> 
+      const data = await ponder.findAllinOne('people'); 
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Find a Column in a Table</h3>
+      <span class="font-semibold">findColumn</span>(column: string, table: string): returns a specific column from a specified table. Stores values from age column from the people table in the const data:
+      <CopyArea> 
+      const data = await ponder.findColumn('age', 'people');  
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Find a Row in a Table</h3>
+      <span class="font-semibold">findRow</span>(table: string, attr: string, value: string): returns rows matching specific criteria. Stores values from rows in the people table where their hair is brown in the const data:
+      <CopyArea> 
+      const data = await ponder.findRow('people', 'hair', 'brown'); 
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Find a Cell in a Table</h3>
+      <span class="font-semibold">findCell</span>(table: string, column: string, value: string): returns data from the first row matching specific criteria.
+      <CopyArea> 
+      ponder.findCell('people', 'name', 'corey'); 
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Add a Row to a Table</h3>
+      <span class="font-semibold">insertIntoTable</span>(table: string, columns: string[], values: string[]): add a new row to an existing table.
+      <CopyArea> 
+      ponder.insertIntoTable(table, [column1, column2], [value1, value2]); 
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Update a Column in a Table</h3>
+      <span class="font-semibold">updateTable</span>(
+        table: string,<br></br>
+        <span class="px-1.5">  </span>column_name: string[],<br></br>
+        <span class="px-1.5">  </span>newValue: string[],<br></br>
+        <span class="px-1.5">  </span>columnToMeet: string[],<br></br>
+        <span class="px-1.5">  </span>valueToMeet: string[],<br></br>
+        <span class="px-1.5">  </span>operator?: string
+        ):
+        <br></br>
+        Updates columns on existing table. The properties columnToMeet and valueToMeet create the conditional statement that must be satisfied before the table is updated. Please note that update table updates the first matching table entry. The operator parameter takes the argument of either "or" or "not." If left blank, the default is "and."
+      <CopyArea> 
+      Ponder.updateTable(table: string, ...column: string[], ...value: string[], [q1, q2,
+...], [a1, a2, ...], operator?);
+      </CopyArea>
+      UPDATE TABLE people SET hair_color = 'blonde', eye_color = 'hazel' WHERE name = 'Fyodor';
+      <CopyArea> 
+      ponder.updateTable(people, [hair_color, eye_color], ['blonde', 'hazel'], [name], ['Fyodor'])
+      </CopyArea>
+      UPDATE TABLE people SET hair_color = 'blonde', eye_color = 'hazel' WHERE name = 'Anton' OR birth_year = '1860';
+      <CopyArea> 
+      ponder.updateTable(people, [hair_color, eye_color], ['blonde', 'hazel'], [name, birth_year], ['Anton', '1860'], 'or');
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Delete a row on a Table</h3>
+      <span class="font-semibold">deleteRow</span>(table: string, column: string[], value: string[]): remove an entire row of data from a table.
+      <CopyArea> 
+      ponder.deleteRow(hair_color, ['blonde', 'pink'], ['Clemntine']);
+      </CopyArea>
+
+
       </p>
     </section>
   );
@@ -478,37 +525,42 @@ export function AboutDoc() {
     return (
         <section id="aboutDoc" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
         <h2 class="text(3xl gray-600) font-bold">About Ponder and its Creators</h2>
+
+        <div class='auto-cols-auto w-auto'>
+          <div id='bioBoxMatt' class='flex-auto flex-col border border-solid border-black'>
+            <img src="/mattC.png" class="rounded"></img>
+            <a href="https://github.com/Matt-2112">GitHub</a> 
+            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+          </div>
+
+          <div id='bioBoxSam' class='flex-auto flex-col border border-solid border-black'>
+            <img src="/SammyG.png" class="rounded"></img>
+            <a href="https://github.com/Matt-2112">GitHub</a> 
+            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+          </div>
+
+          <div id='bioBoxMatt' class='flex-auto flex-col border border-solid border-black'>
+            <img src="/mattC.png" class="rounded"></img>
+            <a href="https://github.com/Matt-2112">GitHub</a> 
+            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+          </div>
+
+          <div id='bioBoxMatt' class='flex-auto flex-col border border-solid border-black'>
+            <img src="/mattC.png" class="rounded"></img>
+            <a href="https://github.com/Matt-2112">GitHub</a> 
+            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+          </div>
+
+          <div id='bioBoxMatt' class='flex-auto flex-col border border-solid border-black'>
+            <img src="/mattC.png" class="rounded"></img>
+            <a href="https://github.com/Matt-2112">GitHub</a> 
+            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+          </div>
+
+        </div>
        
         <p>
-          Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla.
-          Neque sodales ut etiam sit amet nisl purus. Est lorem ipsum dolor sit
-          amet consectetur adipiscing. Lacus laoreet non curabitur gravida.
-          Facilisis mauris sit amet massa vitae tortor. Vulputate ut pharetra sit
-          amet aliquam id. Sit amet consectetur adipiscing elit pellentesque. Nisl
-          rhoncus mattis rhoncus urna neque viverra justo. Egestas sed tempus urna
-          et. Pulvinar pellentesque habitant morbi tristique senectus et netus et
-          malesuada. Tempor nec feugiat nisl pretium fusce id velit. Neque gravida
-          in fermentum et sollicitudin ac. Enim lobortis scelerisque fermentum dui
-          faucibus. Lorem mollis aliquam ut porttitor leo a diam sollicitudin. Ac
-          felis donec et odio pellentesque diam volutpat. Volutpat consequat
-          mauris nunc congue nisi.
-  
-          Morbi enim nunc faucibus a pellentesque sit amet porttitor. Tellus
-          integer feugiat scelerisque varius morbi enim nunc. Pellentesque
-          habitant morbi tristique senectus et netus et. Morbi quis commodo odio
-          aenean sed adipiscing diam donec. Dictumst quisque sagittis purus sit
-          amet volutpat. Netus et malesuada fames ac turpis egestas sed tempus.
-          Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Felis
-          eget velit aliquet sagittis id consectetur purus ut faucibus. Diam quis
-          enim lobortis scelerisque fermentum dui. Ac turpis egestas sed tempus
-          urna et. Amet mattis vulputate enim nulla aliquet porttitor. Non odio
-          euismod lacinia at quis risus sed vulputate odio. Amet porttitor eget
-          dolor morbi non arcu. Purus in massa tempor nec feugiat nisl. Habitant
-          morbi tristique senectus et netus et malesuada fames. Egestas diam in
-          arcu cursus. Egestas tellus rutrum tellus pellentesque eu tincidunt
-          tortor aliquam. Elit scelerisque mauris pellentesque pulvinar
-          pellentesque. In est ante in nibh mauris. Nisl vel pretium lectus quam
-          id.
+          We are so cool.
         </p>
       </section>
     );

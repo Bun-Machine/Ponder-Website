@@ -101,7 +101,7 @@ export function WelcomeArea() {
   return (
     <div style="background-color: #fbd6c8" class="flex flex-col items-center justify-center p-4 mx-auto ">
       <h2 class="py-2 text(4xl sm:4xl lg:4xl gray-900) sm:tracking-tight sm:leading-[1.1]! font-extrabold">
-            A <span class="text-purple-600">simple ORM</span> for PostGres, built for Deno.
+            A <span class="text-purple-600">simple ORM</span> for PostGreSQL, built for Deno.
           </h2>
       <img
         src="/ponder1.png"
@@ -165,17 +165,17 @@ export function FeaturesOne() {
     {
       icon: tablerIconsTsx,
       description:
-        "Basic CRUD Functionality for PostGresSQL.",
+        "Basic CRUD Functionality for PostGreSQL.",
       link: "/docsfolder/docshome",
     },
     {
       icon: IconInput,
       description:
-        "Database Introspection for seeing what's already in your Database.",
+        "Database Introspection for interacting with your database through object representations of the tables.",
     },
     {
       icon: IconArmchair,
-      description: "Written 100% in TypeScript no complier needed.",
+      description: "Written 100% in TypeScript, No complier needed.",
       link: "/docsfolder/docshome",
     },
   ];
@@ -215,13 +215,13 @@ export function FeaturesTwo() {
     {
       icon: IconScale,
       description:
-        "Super lightweight: only the functionality you need.",
+        "Super lightweight: only the crucial functionalities you need.",
       link: "/docsfolder/docshome",
     },
     {
       icon: IconInput,
       description:
-        "Database Introspection for seeing what's already in your Database.",
+        "Ponder can create model instances from your database.",
     },
     {
       icon: IconArmchair,

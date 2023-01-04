@@ -227,39 +227,22 @@ export function BasicCRUD() {
 }
 
 export function ManagingTables() {
+
+  const copy1 = `ponder.createTable('Cats', {
+    id: ["SERIAL"]
+    areCute: ["VARCHAR", "20", "NOT NULL"]
+    }); `
   return (
     <section id="managingTables" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
       <h2 class="text(3xl gray-600) font-bold">ManagingTables</h2>
       <p>
-        Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla.
-        Neque sodales ut etiam sit amet nisl purus. Est lorem ipsum dolor sit
-        amet consectetur adipiscing. Lacus laoreet non curabitur gravida.
-        Facilisis mauris sit amet massa vitae tortor. Vulputate ut pharetra sit
-        amet aliquam id. Sit amet consectetur adipiscing elit pellentesque. Nisl
-        rhoncus mattis rhoncus urna neque viverra justo. Egestas sed tempus urna
-        et. Pulvinar pellentesque habitant morbi tristique senectus et netus et
-        malesuada. Tempor nec feugiat nisl pretium fusce id velit. Neque gravida
-        in fermentum et sollicitudin ac. Enim lobortis scelerisque fermentum dui
-        faucibus. Lorem mollis aliquam ut porttitor leo a diam sollicitudin. Ac
-        felis donec et odio pellentesque diam volutpat. Volutpat consequat
-        mauris nunc congue nisi.
+        
+      <h3 class="text(xl gray-600) font-bold">Create Table</h3>
+      <span class="font-semibold">createTable</span>(tableName: string, columns: any): use this method to create new tables. This method will only return a message that your table is in the database. The first parameter is a string that you'd like to use for your Table Name. The second parameter is an object. Each key of the object is a name of a column on your new table. The value will be an array of strings, where the first element is the SQL datatype, the second element is the length(optional), and third and any other elements would be column constraints you'd like to add like NULL or NOT NULL, etc. 
+      <CopyArea> 
+        {copy1}
+      </CopyArea>
 
-        Morbi enim nunc faucibus a pellentesque sit amet porttitor. Tellus
-        integer feugiat scelerisque varius morbi enim nunc. Pellentesque
-        habitant morbi tristique senectus et netus et. Morbi quis commodo odio
-        aenean sed adipiscing diam donec. Dictumst quisque sagittis purus sit
-        amet volutpat. Netus et malesuada fames ac turpis egestas sed tempus.
-        Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Felis
-        eget velit aliquet sagittis id consectetur purus ut faucibus. Diam quis
-        enim lobortis scelerisque fermentum dui. Ac turpis egestas sed tempus
-        urna et. Amet mattis vulputate enim nulla aliquet porttitor. Non odio
-        euismod lacinia at quis risus sed vulputate odio. Amet porttitor eget
-        dolor morbi non arcu. Purus in massa tempor nec feugiat nisl. Habitant
-        morbi tristique senectus et netus et malesuada fames. Egestas diam in
-        arcu cursus. Egestas tellus rutrum tellus pellentesque eu tincidunt
-        tortor aliquam. Elit scelerisque mauris pellentesque pulvinar
-        pellentesque. In est ante in nibh mauris. Nisl vel pretium lectus quam
-        id.
       </p>
     </section>
   );
@@ -527,29 +510,6 @@ export function AboutDoc() {
         <h2 class="text(3xl gray-600) font-bold">About Ponder and its Creators</h2>
 
         <div class='auto-cols-auto w-auto'>
-          <div id='bioBoxMatt' class='flex-auto flex-col border border-solid border-black'>
-            <img src="/mattC.png" class="rounded"></img>
-            <a href="https://github.com/Matt-2112">GitHub</a> 
-            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
-          </div>
-
-          <div id='bioBoxSam' class='flex-auto flex-col border border-solid border-black'>
-            <img src="/SammyG.png" class="rounded"></img>
-            <a href="https://github.com/Matt-2112">GitHub</a> 
-            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
-          </div>
-
-          <div id='bioBoxMatt' class='flex-auto flex-col border border-solid border-black'>
-            <img src="/mattC.png" class="rounded"></img>
-            <a href="https://github.com/Matt-2112">GitHub</a> 
-            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
-          </div>
-
-          <div id='bioBoxMatt' class='flex-auto flex-col border border-solid border-black'>
-            <img src="/mattC.png" class="rounded"></img>
-            <a href="https://github.com/Matt-2112">GitHub</a> 
-            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
-          </div>
 
           <div id='bioBoxMatt' class='flex-auto flex-col border border-solid border-black'>
             <img src="/mattC.png" class="rounded"></img>

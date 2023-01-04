@@ -231,7 +231,15 @@ export function ManagingTables() {
   const copy1 = `ponder.createTable('Cats', {
     id: ["SERIAL"]
     areCute: ["VARCHAR", "20", "NOT NULL"]
-    }); `
+    }); `;
+
+  const copy2 = `ponder.addColumns('programmers', {
+    id: ["SERIAL"]
+    howSmart: ["VARCHAR", "20", "NOT NULL"]
+ });`;
+
+  const copy3 = `ponder.dropColumns('programmers', columnsToDrop: {howSmart: true});`;
+  
   return (
     <section id="managingTables" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
       <h2 class="text(3xl gray-600) font-bold">ManagingTables</h2>
@@ -241,6 +249,30 @@ export function ManagingTables() {
       <span class="font-semibold">createTable</span>(tableName: string, columns: any): use this method to create new tables. This method will only return a message that your table is in the database. The first parameter is a string that you'd like to use for your Table Name. The second parameter is an object. Each key of the object is a name of a column on your new table. The value will be an array of strings, where the first element is the SQL datatype, the second element is the length(optional), and third and any other elements would be column constraints you'd like to add like NULL or NOT NULL, etc. 
       <CopyArea> 
         {copy1}
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Drop One Table</h3>
+      <span class="font-semibold">dropOneTable</span>(tableName: string, cascade?: boolean): Deletes an entire table. Optional boolean to include CASCADE command (default is RESTRICT).
+      <CopyArea> 
+      ponder.dropOneTable('Cats', true);
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Drop Multiple Tables</h3>
+      <span class="font-semibold">dropMultipleTables</span>(tableNamesArray : string[], cascade?: boolean): deletes multiple tables. Optional boolean to include CASCADE command (default is RESTRICT).
+      <CopyArea> 
+      ponder.dropMultipleTables(['Cats', 'People'], true);
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Add Columns to an Existing Table</h3>
+      <span class="font-semibold">addColumns</span>(tableToAlter : string, columns: any): Add one or more columns to existing Table. The first parameter is a string of the Table Name you'd like to alter. The second parameter is an object. Each key of the object is a name of a column on your table. The value will be an array of strings, where the first element is the SQL datatype, the second element is the length(optional), and third and any other elements would be column constraints you'd like to add like NULL or NOT NULL, etc. 
+      <CopyArea> 
+      {copy2}
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Drop Columns from a Table</h3>
+      <span class="font-semibold">dropColumns</span>(tableName: string, columnsToDrop: any): Delete an entire column. The first argument is a string, the name of the table. The second argument is an object. The keys are the names of the columns you'd like to delete, the values are booleans (true for CASCADE, false for RESTRICT.)
+      <CopyArea> 
+      {copy3}
       </CopyArea>
 
       </p>
@@ -509,10 +541,35 @@ export function AboutDoc() {
         <section id="aboutDoc" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
         <h2 class="text(3xl gray-600) font-bold">About Ponder and its Creators</h2>
 
-        <div class='auto-cols-auto w-auto'>
+        <div class='grid auto-rows-auto'>
 
-          <div id='bioBoxMatt' class='flex-auto flex-col border border-solid border-black'>
-            <img src="/mattC.png" class="rounded"></img>
+          <div id='bioBoxMatt' class='flex flex-row border border-solid border-black'>
+            <img src="/mattC.png" class="rounded-full"></img>
+            <span>Hello</span>
+            <a href="https://github.com/Matt-2112">GitHub</a> 
+            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+          </div>
+
+          <div id='bioBoxSam' class='flex-auto flex-col border border-solid border-black'>
+            <img src="/SammyG.png" class="rounded-full"></img>
+            <a href="https://github.com/Matt-2112">GitHub</a> 
+            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+          </div>
+
+          <div id='bioBoxStella' class='flex-auto flex-col border border-solid border-black'>
+            <img src="/Stella.png" class="rounded-full"></img>
+            <a href="https://github.com/Matt-2112">GitHub</a> 
+            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+          </div>
+
+          <div id='bioBoxCorey' class='flex-auto flex-col border border-solid border-black'>
+            <img src="/Corey.png" class="rounded-full"></img>
+            <a href="https://github.com/Matt-2112">GitHub</a> 
+            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+          </div>
+
+          <div id='bioBoxSara' class='flex-auto flex-col border border-solid border-black'>
+            <img src="/mattC.png" class="rounded-full"></img>
             <a href="https://github.com/Matt-2112">GitHub</a> 
             <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
           </div>

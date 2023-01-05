@@ -375,7 +375,20 @@ newPerson.update();
       {update1}
       </CopyArea>
 
+      <h3 class="text(xl gray-600) font-bold">Search all entries in table</h3>
+      <span class="font-semibold">.search()</span> Invoking <span class="font-semibold">.search()</span> on an instance will return all the data from the table the instance is a part of. 
+      Stores all data from "people" table in variable:
 
+      <CopyArea> 
+      newPerson.search();
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Delete from table</h3>
+      <span class="font-semibold">.delete()</span> Deletes row from table:
+
+      <CopyArea> 
+      newPerson.delete()
+      </CopyArea>
 
       </p>
     </section>

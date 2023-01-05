@@ -283,7 +283,7 @@ export function GettingStarted(props: { origin: string }) {
       </p>
 
       <CopyArea>
-        {`import * as ponder from "https://deno.land/x/ponder@v0.0.3.1/mod.ts";`}
+        {`import * as ponder from "https://deno.land/x/ponder/mod.ts";`}
       </CopyArea>
 
       <p class="text-gray-600">

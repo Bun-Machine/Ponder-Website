@@ -281,136 +281,63 @@ export function ManagingTables() {
 }
 
 export function DatabaseIntrospection() {
+  const dbintro1 = `import { Model } from './deps.ts' 
+
+  export class person extends Model { 
+  tableName = 'person' 
+   static person_id = { 
+      data_type: 'integer', 
+      is_nullable: 'NO', 
+      } 
+   static name = { 
+      data_type: 'character varying', 
+      is_nullable: 'YES', 
+      } 
+   static hair_color = { 
+      data_type: 'character varying', 
+      is_nullable: 'YES', 
+      } 
+   static age = { 
+      data_type: 'integer', 
+      is_nullable: 'YES', 
+      }  
+    }`
+
+    const dbintro2 = `export interface person { 
+      name: string; 
+      hair_color: string; 
+      age: number; 
+      height: number; 
+      favorite_movie: string; 
+      favorite_book: string; 
+    } `
   return (
     <section id="databaseIntrospection" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
       <h2 class="text(3xl gray-600) font-bold">Database Introspection</h2>
     
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Sapien pellentesque
-        habitant morbi tristique senectus et netus. Viverra nibh cras pulvinar
-        mattis nunc. Gravida cum sociis natoque penatibus et magnis dis
-        parturient. At quis risus sed vulputate odio ut enim. Maecenas accumsan
-        lacus vel facilisis volutpat est velit egestas dui. Mauris sit amet
-        massa vitae tortor condimentum lacinia. Curabitur gravida arcu ac tortor
-        dignissim convallis aenean et. Cursus metus aliquam eleifend mi in nulla
-        posuere. Senectus et netus et malesuada fames ac. Sagittis vitae et leo
-        duis ut diam.
+      Ponder provides an introspect method to receive JavaScript representations of the data in your SQL Table. Because running the introspect method will create/write a new file in your file system, it is recommended to create a new file in your project root directory. Run this file using deno run to execute introspection. (If you keep your instrospect execution within another file, it may run repeated on the same database and will write unnecessary duplicates in your file system).
+      <br></br>
+      After importing ponder from your deps.ts file or from ponder directly, you'll need to first connect your database. After making a connection, all you need to do is invoke instrospect function:
+      <CopyArea> 
+      ponder.introspect();
+      </CopyArea>
+      You will see a new file called <span class="font-semibold">dataModels.ts</span> in your root directory that contain models of your database tables!
+      <br></br>
+      For example the file might look like this:
+      The class person extends Model and represents the "person" table in database:
+      <CopyArea> 
+      {dbintro1}
+      </CopyArea>
+      Additionally, every class is accompanied with an interface.
+      <CopyArea> 
+      {dbintro2}
+      </CopyArea>
 
-        Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla.
-        Neque sodales ut etiam sit amet nisl purus. Est lorem ipsum dolor sit
-        amet consectetur adipiscing. Lacus laoreet non curabitur gravida.
-        Facilisis mauris sit amet massa vitae tortor. Vulputate ut pharetra sit
-        amet aliquam id. Sit amet consectetur adipiscing elit pellentesque. Nisl
-        rhoncus mattis rhoncus urna neque viverra justo. Egestas sed tempus urna
-        et. Pulvinar pellentesque habitant morbi tristique senectus et netus et
-        malesuada. Tempor nec feugiat nisl pretium fusce id velit. Neque gravida
-        in fermentum et sollicitudin ac. Enim lobortis scelerisque fermentum dui
-        faucibus. Lorem mollis aliquam ut porttitor leo a diam sollicitudin. Ac
-        felis donec et odio pellentesque diam volutpat. Volutpat consequat
-        mauris nunc congue nisi.
 
-        Morbi enim nunc faucibus a pellentesque sit amet porttitor. Tellus
-        integer feugiat scelerisque varius morbi enim nunc. Pellentesque
-        habitant morbi tristique senectus et netus et. Morbi quis commodo odio
-        aenean sed adipiscing diam donec. Dictumst quisque sagittis purus sit
-        amet volutpat. Netus et malesuada fames ac turpis egestas sed tempus.
-        Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Felis
-        eget velit aliquet sagittis id consectetur purus ut faucibus. Diam quis
-        enim lobortis scelerisque fermentum dui. Ac turpis egestas sed tempus
-        urna et. Amet mattis vulputate enim nulla aliquet porttitor. Non odio
-        euismod lacinia at quis risus sed vulputate odio. Amet porttitor eget
-        dolor morbi non arcu. Purus in massa tempor nec feugiat nisl. Habitant
-        morbi tristique senectus et netus et malesuada fames. Egestas diam in
-        arcu cursus. Egestas tellus rutrum tellus pellentesque eu tincidunt
-        tortor aliquam. Elit scelerisque mauris pellentesque pulvinar
-        pellentesque. In est ante in nibh mauris. Nisl vel pretium lectus quam
-        id.
 
-        Orci porta non pulvinar neque. Vel turpis nunc eget lorem dolor sed
-        viverra. Tempor nec feugiat nisl pretium fusce. Enim sit amet venenatis
-        urna cursus. Orci phasellus egestas tellus rutrum tellus pellentesque eu
-        tincidunt tortor. Ac feugiat sed lectus vestibulum mattis ullamcorper
-        velit sed ullamcorper. Sagittis orci a scelerisque purus semper eget
-        duis. Cursus eget nunc scelerisque viverra mauris in aliquam sem.
-        Posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis.
-        Elit eget gravida cum sociis natoque penatibus et. Quis blandit turpis
-        cursus in hac habitasse platea dictumst quisque. Faucibus turpis in eu
-        mi bibendum neque egestas congue. Sit amet consectetur adipiscing elit
-        duis tristique sollicitudin nibh. Vitae proin sagittis nisl rhoncus
-        mattis rhoncus urna. Erat nam at lectus urna. Rhoncus est pellentesque
-        elit ullamcorper dignissim. Aliquet porttitor lacus luctus accumsan
-        tortor. Vitae tortor condimentum lacinia quis vel eros donec ac.
 
-        Vitae tortor condimentum lacinia quis vel eros donec ac. Neque egestas
-        congue quisque egestas diam in arcu. Et tortor consequat id porta. Enim
-        sit amet venenatis urna cursus. Vel facilisis volutpat est velit egestas
-        dui id ornare. At varius vel pharetra vel. Suspendisse potenti nullam ac
-        tortor vitae purus faucibus ornare suspendisse. Bibendum ut tristique et
-        egestas quis ipsum suspendisse ultrices. Ac turpis egestas sed tempus
-        urna et pharetra pharetra massa. Maecenas ultricies mi eget mauris
-        pharetra et ultrices. Pulvinar neque laoreet suspendisse interdum
-        consectetur libero. Nisl nisi scelerisque eu ultrices vitae auctor eu.
 
-        Id velit ut tortor pretium viverra suspendisse potenti. Scelerisque
-        eleifend donec pretium vulputate sapien nec sagittis aliquam. Nulla
-        facilisi nullam vehicula ipsum a arcu cursus vitae. Porttitor lacus
-        luctus accumsan tortor posuere ac. Sit amet facilisis magna etiam tempor
-        orci eu. Fermentum dui faucibus in ornare quam viverra orci. Suspendisse
-        sed nisi lacus sed viverra tellus in. Odio tempor orci dapibus ultrices
-        in iaculis nunc sed. Elementum integer enim neque volutpat ac tincidunt
-        vitae semper quis. Feugiat in ante metus dictum at tempor commodo. Massa
-        placerat duis ultricies lacus sed.
-
-        Vel eros donec ac odio tempor. Fermentum dui faucibus in ornare.
-        Facilisi morbi tempus iaculis urna. Bibendum arcu vitae elementum
-        curabitur vitae nunc sed velit. Rhoncus aenean vel elit scelerisque
-        mauris pellentesque pulvinar pellentesque. Vitae justo eget magna
-        fermentum. Morbi tincidunt ornare massa eget egestas purus. Aliquam
-        purus sit amet luctus venenatis. Vitae et leo duis ut. Tincidunt dui ut
-        ornare lectus. Quam nulla porttitor massa id neque aliquam vestibulum.
-        Mauris pellentesque pulvinar pellentesque habitant morbi. Pellentesque
-        elit eget gravida cum sociis natoque penatibus et magnis. Vel pretium
-        lectus quam id leo in vitae turpis massa. Quisque sagittis purus sit
-        amet volutpat consequat. Ipsum dolor sit amet consectetur adipiscing
-        elit. Blandit libero volutpat sed cras ornare arcu.
-
-        Mi bibendum neque egestas congue quisque egestas diam in arcu. Vulputate
-        mi sit amet mauris. Sed ullamcorper morbi tincidunt ornare massa eget
-        egestas purus viverra. Velit egestas dui id ornare arcu odio. Elementum
-        sagittis vitae et leo duis. Morbi tincidunt augue interdum velit euismod
-        in pellentesque. Facilisi etiam dignissim diam quis enim lobortis
-        scelerisque. Scelerisque varius morbi enim nunc faucibus a pellentesque
-        sit. Arcu dui vivamus arcu felis bibendum. At varius vel pharetra vel
-        turpis. Lectus mauris ultrices eros in cursus turpis. Congue nisi vitae
-        suscipit tellus mauris a diam maecenas sed. Eu feugiat pretium nibh
-        ipsum consequat nisl vel pretium. Id donec ultrices tincidunt arcu non
-        sodales neque. Ullamcorper malesuada proin libero nunc consequat
-        interdum varius sit. Ipsum nunc aliquet bibendum enim facilisis gravida
-        neque convallis.
-
-        Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam.
-        Convallis aenean et tortor at risus viverra. Bibendum est ultricies
-        integer quis auctor elit sed. Egestas dui id ornare arcu. Risus quis
-        varius quam quisque id diam vel quam. Arcu bibendum at varius vel
-        pharetra vel. Amet nulla facilisi morbi tempus iaculis urna id volutpat
-        lacus. Quis lectus nulla at volutpat diam. Laoreet id donec ultrices
-        tincidunt arcu non sodales neque. Cursus sit amet dictum sit amet. Arcu
-        risus quis varius quam quisque id diam. Proin nibh nisl condimentum id
-        venenatis a condimentum vitae sapien. Ac odio tempor orci dapibus
-        ultrices in. Id neque aliquam vestibulum morbi blandit. Sagittis eu
-        volutpat odio facilisis mauris sit.
-
-        Tempor nec feugiat nisl pretium fusce id velit. Vitae semper quis lectus
-        nulla at. Arcu non odio euismod lacinia at quis risus sed vulputate.
-        Morbi leo urna molestie at elementum. Suspendisse potenti nullam ac
-        tortor vitae purus faucibus ornare. Id semper risus in hendrerit gravida
-        rutrum. Quam nulla porttitor massa id neque. Non tellus orci ac auctor
-        augue mauris augue neque gravida. Tristique magna sit amet purus gravida
-        quis. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut
-        placerat. Diam donec adipiscing tristique risus. In fermentum et
-        sollicitudin ac orci phasellus egestas. Egestas diam in arcu cursus.
-        Tincidunt augue interdum velit euismod in pellentesque massa placerat.
       </p>
     </section>
   );
@@ -422,35 +349,7 @@ export function AssociationsDoc() {
     <section id="associationsDoc" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
     <h2 class="text(3xl gray-600) font-bold">Associations</h2>
       <p>
-        Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla.
-        Neque sodales ut etiam sit amet nisl purus. Est lorem ipsum dolor sit
-        amet consectetur adipiscing. Lacus laoreet non curabitur gravida.
-        Facilisis mauris sit amet massa vitae tortor. Vulputate ut pharetra sit
-        amet aliquam id. Sit amet consectetur adipiscing elit pellentesque. Nisl
-        rhoncus mattis rhoncus urna neque viverra justo. Egestas sed tempus urna
-        et. Pulvinar pellentesque habitant morbi tristique senectus et netus et
-        malesuada. Tempor nec feugiat nisl pretium fusce id velit. Neque gravida
-        in fermentum et sollicitudin ac. Enim lobortis scelerisque fermentum dui
-        faucibus. Lorem mollis aliquam ut porttitor leo a diam sollicitudin. Ac
-        felis donec et odio pellentesque diam volutpat. Volutpat consequat
-        mauris nunc congue nisi.
-
-        Morbi enim nunc faucibus a pellentesque sit amet porttitor. Tellus
-        integer feugiat scelerisque varius morbi enim nunc. Pellentesque
-        habitant morbi tristique senectus et netus et. Morbi quis commodo odio
-        aenean sed adipiscing diam donec. Dictumst quisque sagittis purus sit
-        amet volutpat. Netus et malesuada fames ac turpis egestas sed tempus.
-        Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Felis
-        eget velit aliquet sagittis id consectetur purus ut faucibus. Diam quis
-        enim lobortis scelerisque fermentum dui. Ac turpis egestas sed tempus
-        urna et. Amet mattis vulputate enim nulla aliquet porttitor. Non odio
-        euismod lacinia at quis risus sed vulputate odio. Amet porttitor eget
-        dolor morbi non arcu. Purus in massa tempor nec feugiat nisl. Habitant
-        morbi tristique senectus et netus et malesuada fames. Egestas diam in
-        arcu cursus. Egestas tellus rutrum tellus pellentesque eu tincidunt
-        tortor aliquam. Elit scelerisque mauris pellentesque pulvinar
-        pellentesque. In est ante in nibh mauris. Nisl vel pretium lectus quam
-        id.
+        Coming Soon!
       </p>
     </section>
   );
@@ -462,35 +361,7 @@ export function CLI() {
     <section id="CLI" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
     <h2 class="text(3xl gray-600) font-bold">Ponder Command Line Interface (CLI)</h2>
       <p>
-        Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla.
-        Neque sodales ut etiam sit amet nisl purus. Est lorem ipsum dolor sit
-        amet consectetur adipiscing. Lacus laoreet non curabitur gravida.
-        Facilisis mauris sit amet massa vitae tortor. Vulputate ut pharetra sit
-        amet aliquam id. Sit amet consectetur adipiscing elit pellentesque. Nisl
-        rhoncus mattis rhoncus urna neque viverra justo. Egestas sed tempus urna
-        et. Pulvinar pellentesque habitant morbi tristique senectus et netus et
-        malesuada. Tempor nec feugiat nisl pretium fusce id velit. Neque gravida
-        in fermentum et sollicitudin ac. Enim lobortis scelerisque fermentum dui
-        faucibus. Lorem mollis aliquam ut porttitor leo a diam sollicitudin. Ac
-        felis donec et odio pellentesque diam volutpat. Volutpat consequat
-        mauris nunc congue nisi.
-
-        Morbi enim nunc faucibus a pellentesque sit amet porttitor. Tellus
-        integer feugiat scelerisque varius morbi enim nunc. Pellentesque
-        habitant morbi tristique senectus et netus et. Morbi quis commodo odio
-        aenean sed adipiscing diam donec. Dictumst quisque sagittis purus sit
-        amet volutpat. Netus et malesuada fames ac turpis egestas sed tempus.
-        Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Felis
-        eget velit aliquet sagittis id consectetur purus ut faucibus. Diam quis
-        enim lobortis scelerisque fermentum dui. Ac turpis egestas sed tempus
-        urna et. Amet mattis vulputate enim nulla aliquet porttitor. Non odio
-        euismod lacinia at quis risus sed vulputate odio. Amet porttitor eget
-        dolor morbi non arcu. Purus in massa tempor nec feugiat nisl. Habitant
-        morbi tristique senectus et netus et malesuada fames. Egestas diam in
-        arcu cursus. Egestas tellus rutrum tellus pellentesque eu tincidunt
-        tortor aliquam. Elit scelerisque mauris pellentesque pulvinar
-        pellentesque. In est ante in nibh mauris. Nisl vel pretium lectus quam
-        id.
+        Coming Soon!
       </p>
     </section>
   );
@@ -502,35 +373,10 @@ export function ExampleDoc() {
     <h2 class="text(3xl gray-600) font-bold">Examples of Ponder in Use</h2>
 
       <p>
-        Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla.
-        Neque sodales ut etiam sit amet nisl purus. Est lorem ipsum dolor sit
-        amet consectetur adipiscing. Lacus laoreet non curabitur gravida.
-        Facilisis mauris sit amet massa vitae tortor. Vulputate ut pharetra sit
-        amet aliquam id. Sit amet consectetur adipiscing elit pellentesque. Nisl
-        rhoncus mattis rhoncus urna neque viverra justo. Egestas sed tempus urna
-        et. Pulvinar pellentesque habitant morbi tristique senectus et netus et
-        malesuada. Tempor nec feugiat nisl pretium fusce id velit. Neque gravida
-        in fermentum et sollicitudin ac. Enim lobortis scelerisque fermentum dui
-        faucibus. Lorem mollis aliquam ut porttitor leo a diam sollicitudin. Ac
-        felis donec et odio pellentesque diam volutpat. Volutpat consequat
-        mauris nunc congue nisi.
-
-        Morbi enim nunc faucibus a pellentesque sit amet porttitor. Tellus
-        integer feugiat scelerisque varius morbi enim nunc. Pellentesque
-        habitant morbi tristique senectus et netus et. Morbi quis commodo odio
-        aenean sed adipiscing diam donec. Dictumst quisque sagittis purus sit
-        amet volutpat. Netus et malesuada fames ac turpis egestas sed tempus.
-        Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Felis
-        eget velit aliquet sagittis id consectetur purus ut faucibus. Diam quis
-        enim lobortis scelerisque fermentum dui. Ac turpis egestas sed tempus
-        urna et. Amet mattis vulputate enim nulla aliquet porttitor. Non odio
-        euismod lacinia at quis risus sed vulputate odio. Amet porttitor eget
-        dolor morbi non arcu. Purus in massa tempor nec feugiat nisl. Habitant
-        morbi tristique senectus et netus et malesuada fames. Egestas diam in
-        arcu cursus. Egestas tellus rutrum tellus pellentesque eu tincidunt
-        tortor aliquam. Elit scelerisque mauris pellentesque pulvinar
-        pellentesque. In est ante in nibh mauris. Nisl vel pretium lectus quam
-        id.
+        Here are some examples of ponder in the wild:
+        <br></br>
+        <br></br>
+        (...crickets...)
       </p>
     </section>
   );
@@ -541,35 +387,38 @@ export function AboutDoc() {
         <section id="aboutDoc" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
         <h2 class="text(3xl gray-600) font-bold">About Ponder and its Creators</h2>
 
-        <div class='grid auto-rows-auto'>
+        <div class='grid auto-cols-auto'>
 
-          <div id='bioBoxMatt' class='flex flex-row border border-solid border-black'>
-            <img src="/mattC.png" class="rounded-full"></img>
-            <span>Hello</span>
+          <div id='bioBoxMatt' class='flex flex-row m-1'>
+            <img src="/mattC (1).png" class="rounded-full w-48 h-48"></img>
+            <p>
+              <h3><b>Matt Connell</b></h3>
+              <a href="https://github.com/Matt-2112">GitHub</a> 
+              <br></br>
+              <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+            </p>
+          </div>
+
+          <div id='bioBoxSam' class='flex flex-row flex-col m-1'>
+            <img src="/SammyG.png" class="rounded-full w-48 h-48"></img>
             <a href="https://github.com/Matt-2112">GitHub</a> 
             <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
           </div>
 
-          <div id='bioBoxSam' class='flex-auto flex-col border border-solid border-black'>
-            <img src="/SammyG.png" class="rounded-full"></img>
+          <div id='bioBoxStella' class='flex flex-row flex-col m-1'>
+            <img src="/Stella (1).png" class="rounded-full w-48 h-48"></img>
             <a href="https://github.com/Matt-2112">GitHub</a> 
             <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
           </div>
 
-          <div id='bioBoxStella' class='flex-auto flex-col border border-solid border-black'>
-            <img src="/Stella.png" class="rounded-full"></img>
+          <div id='bioBoxCorey' class='flex flex-row flex-col m-1'>
+            <img src="/Corey.png" class="rounded-full w-48 h-48"></img>
             <a href="https://github.com/Matt-2112">GitHub</a> 
             <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
           </div>
 
-          <div id='bioBoxCorey' class='flex-auto flex-col border border-solid border-black'>
-            <img src="/Corey.png" class="rounded-full"></img>
-            <a href="https://github.com/Matt-2112">GitHub</a> 
-            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
-          </div>
-
-          <div id='bioBoxSara' class='flex-auto flex-col border border-solid border-black'>
-            <img src="/mattC.png" class="rounded-full"></img>
+          <div id='bioBoxSara' class='flex flex-row flex-col m-1'>
+            <img src="/SaraB.png" class="rounded-full w-48 h-48"></img>
             <a href="https://github.com/Matt-2112">GitHub</a> 
             <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
           </div>

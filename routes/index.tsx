@@ -45,7 +45,7 @@ export function NavBar() {
         class="bg-purple-400 text-black p-3 text-center group"
         href="https://deno.land/x/ponder/"
       >
-        <b>Ponder v0.1.0</b> has been released, still in pre-production!{" "}
+        <b>Ponder v0.1.0</b> has been released, alpha version out now!{" "}
         <b>Use at your own Discretion!</b>{" "}
         <span class="group-hover:underline">→</span>
       </a>

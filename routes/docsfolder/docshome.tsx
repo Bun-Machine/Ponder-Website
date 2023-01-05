@@ -310,7 +310,19 @@ export function DatabaseIntrospection() {
       height: number; 
       favorite_movie: string; 
       favorite_book: string; 
-    } `
+    } `;
+
+    const model1 = 
+    `newPerson.name = 'Sara';
+newPerson.hair_color = 'dark brown';`;
+
+    const update1 = `newPerson.name = 'Johannes';
+newPerson.hair_color = 'black';
+newPerson.age = 22;
+//Invoking update function makes these changes in database
+newPerson.update();
+    `;
+
   return (
     <section id="databaseIntrospection" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
       <h2 class="text(3xl gray-600) font-bold">Database Introspection</h2>
@@ -334,7 +346,34 @@ export function DatabaseIntrospection() {
       {dbintro2}
       </CopyArea>
 
+      <h3 class="text(2xl gray-600) font-bold">Model Methods</h3>
+      Database introspection allows the user to interact with their database through object representations of the tables.
+      Create an instance of the Model :
+      <CopyArea> 
+      const newPerson = new person();
+      </CopyArea>
+      Use dot notation to assign values to properties on new object. 
+      If the types are incorrect, or a value is added to a property that does not exist on model, an error will be thrown.
+      <CopyArea> 
+      {model1}
+      </CopyArea>
 
+
+      <h3 class="text(xl gray-600) font-bold">Save new row to table</h3>
+      <span class="font-semibold">.save()</span> After instantiating an instance of your model, invoke the <span class="font-semibold">.save()</span> method on it to save it to you database.
+      A new row will be added to the "person" table with the properties added above saved in their respective columns
+      <CopyArea> 
+      newPerson.save();
+      </CopyArea>
+
+      <h3 class="text(xl gray-600) font-bold">Update a row</h3>
+      <span class="font-semibold">.update()</span> Note that once a foreign key has been set, *you CANNOT update it* 
+      If you change properties on your instance and wish to update your database with the new values, invoke the <span class="font-semibold">.update()</span> method. 
+      Change properties on instance:
+
+      <CopyArea> 
+      {update1}
+      </CopyArea>
 
 
 
@@ -401,26 +440,26 @@ export function AboutDoc() {
 
           <div id='bioBoxSam' class='flex flex-row flex-col m-1'>
             <img src="/SammyG.png" class="rounded-full w-48 h-48"></img>
-            <a href="https://github.com/Matt-2112">GitHub</a> 
-            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+            <a href="https://github.com/sammyb1rd" target="_blank">GitHub</a> 
+            <a href="https://www.linkedin.com/in/samuel-goldenberg/" target="_blank">LinkedIn</a>
           </div>
 
           <div id='bioBoxStella' class='flex flex-row flex-col m-1'>
             <img src="/Stella (1).png" class="rounded-full w-48 h-48"></img>
-            <a href="https://github.com/Matt-2112">GitHub</a> 
-            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+            <a href="https://github.com/StellaBaek" target="_blank">GitHub</a> 
+            <a href="https://www.linkedin.com/in/stellabaek/" target="_blank">LinkedIn</a>
           </div>
 
           <div id='bioBoxCorey' class='flex flex-row flex-col m-1'>
             <img src="/Corey.png" class="rounded-full w-48 h-48"></img>
-            <a href="https://github.com/Matt-2112">GitHub</a> 
-            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+            <a href="https://github.com/mcbrownc" target="_blank">GitHub</a> 
+            <a href="https://www.linkedin.com/in/coreymcclendonbrown/" target="_blank">LinkedIn</a>
           </div>
 
           <div id='bioBoxSara' class='flex flex-row flex-col m-1'>
             <img src="/SaraB.png" class="rounded-full w-48 h-48"></img>
-            <a href="https://github.com/Matt-2112">GitHub</a> 
-            <a href="https://www.linkedin.com/in/matt-connell-/">LinkedIn</a>
+            <a href="https://github.com/Sbrown2018" target="_blank">GitHub</a> 
+            <a href="https://www.linkedin.com/in/sara-brown15/" target="_blank">LinkedIn</a>
           </div>
 
         </div>

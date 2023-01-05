@@ -158,7 +158,7 @@ export function FeaturesOne() {
     },
     {
       icon: IconArmchair,
-      description: "Written 100% in TypeScript, No complier needed.",
+      description: "Written 100% in TypeScript, No config file or compilier needed.",
       link: "/docsfolder/docshome",
     },
   ];
@@ -287,16 +287,16 @@ export function GettingStarted(props: { origin: string }) {
       </CopyArea>
 
       <p class="text-gray-600">
-        You'll now be able to connect Ponder to your Database. First, store your Database URI in your own .env file. Then you can pull into your working file, the Database URI.
+        You'll now be able to connect Ponder to your Database. First, store your Database URI in your .env file. Then pull it into your working file and store it.
       </p>
 
       <CopyArea>{`const DB_URI = Deno.env.get('DB_URI');`}</CopyArea>
 
       <p class="text-gray-600">
-        Now you can connect to your DB using the built-in poolConnection method: 
+        You can connect to your DB using the built-in poolConnection method: 
       </p>
 
-      <CopyArea>{'const ponderDB1 = await ponder.poolConnection(`${DB_URI}`, 3, true);'}</CopyArea>
+      <CopyArea>{'const ponderDB1 = await ponder.poolConnection(DB_URI);'}</CopyArea>
 
       <p class="text-gray-600">
         Now you are now able to run any of the built in functions off the ponderDB1 variable: 
@@ -307,7 +307,7 @@ export function GettingStarted(props: { origin: string }) {
       <p class="text-gray-600"> 
         A more in-depth{" "}
         <a
-          href="/docs/getting-started"
+          href="/docsfolder/docshome"
           class="text-blue-600 hover:underline"
         >
           <i>Getting Started</i>

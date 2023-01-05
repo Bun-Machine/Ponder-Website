@@ -88,7 +88,7 @@ export function DocsTableOfContents() {
   ));
 
   return (
-    <section  class="m-12 fixed">
+    <section  class="m-12 md:fixed sm:relative">
       <h3 id="tableOfContents" class="text-2xl"><a href="#mainLogoTop">Table Of Contents</a></h3>
       <ul class="list-inside">
         {docsMapped}
@@ -102,12 +102,19 @@ export function IntroDoc() {
     <section id="introDoc" class="max-w-screen-md mx-auto my-16 px(4 sm:6 md:8) space-y-4">
       <h1 class="text(3xl gray-600) font-bold">Intro</h1>
       <p>
-      Ponder is an ORM for PostGres using the Deno runtime, eliminating the need for developers to spend valuable time writing complex SQL queries.
+      Ponder is an ORM for PostGres using the Deno runtime. It eliminates the need for developers to spend valuable time writing complex SQL queries.
 
       <h3 class="text(xl gray-600) font-bold">Features</h3>
+      <ul>
+        <li>Connect to your PostGres Database</li>
+        <li>Basic CRUD functionality for interacting with your PostGRES Database</li>
+        <li>Introspect database and modify database tables through models in accordance with principles of OOP</li>
+        <li>Introspect your database for a visual representation of your tables</li>
+      </ul>
+      {/* -Connect to your PostGres Database <br></br>
       -Basic CRUD functionality for interacting with your PostGRES Database<br></br>
       -Introspect database and modify database tables through models in accordance with principles of OOP<br></br>
-      -Introspect your database for a visual representation of your tables
+      -Introspect your database for a visual representation of your tables */}
 
       <h3 class="text(xl gray-600) font-bold">How to add to your Project</h3>
       To use, please import the Ponder URI. You now have access to all the methods on the "ponder" object!
@@ -185,9 +192,9 @@ export function BasicCRUD() {
       </CopyArea>
 
       <h3 class="text(xl gray-600) font-bold">Add a Row to a Table</h3>
-      <span class="font-semibold">insertIntoTable</span>(table: string, columns: string[], values: string[]): add a new row to an existing table.
+      <span class="font-semibold">insertIntoTable</span>(table: string, columns: string[], values: string[]): add a new row to an existing table.  Example adds a row to people table with specified values.
       <CopyArea> 
-      ponder.insertIntoTable(table, [column1, column2], [value1, value2]); 
+      ponder.insertIntoTable('people', ['name', 'hair'], ['Sam', 'red']); 
       </CopyArea>
 
       <h3 class="text(xl gray-600) font-bold">Update a Column in a Table</h3>
@@ -198,18 +205,9 @@ export function BasicCRUD() {
         <span class="px-1.5">  </span>columnToMeet: string[],<br></br>
         <span class="px-1.5">  </span>valueToMeet: string[],<br></br>
         <span class="px-1.5">  </span>operator?: string
-        ):
+        );
         <br></br>
         Updates columns on existing table. The properties columnToMeet and valueToMeet create the conditional statement that must be satisfied before the table is updated. Please note that update table updates the first matching table entry. The operator parameter takes the argument of either "or" or "not." If left blank, the default is "and."
-      <CopyArea> 
-      Ponder.updateTable(table: string, ...column: string[], ...value: string[], [q1, q2,
-...], [a1, a2, ...], operator?);
-      </CopyArea>
-      UPDATE TABLE people SET hair_color = 'blonde', eye_color = 'hazel' WHERE name = 'Fyodor';
-      <CopyArea> 
-      ponder.updateTable(people, [hair_color, eye_color], ['blonde', 'hazel'], [name], ['Fyodor'])
-      </CopyArea>
-      UPDATE TABLE people SET hair_color = 'blonde', eye_color = 'hazel' WHERE name = 'Anton' OR birth_year = '1860';
       <CopyArea> 
       ponder.updateTable(people, [hair_color, eye_color], ['blonde', 'hazel'], [name, birth_year], ['Anton', '1860'], 'or');
       </CopyArea>
@@ -217,7 +215,7 @@ export function BasicCRUD() {
       <h3 class="text(xl gray-600) font-bold">Delete a row on a Table</h3>
       <span class="font-semibold">deleteRow</span>(table: string, column: string[], value: string[]): remove an entire row of data from a table.
       <CopyArea> 
-      ponder.deleteRow(hair_color, ['blonde', 'pink'], ['Clemntine']);
+      ponder.deleteRow(hair_color, ['blonde', 'pink'], ['Clementine']);
       </CopyArea>
 
 
@@ -264,7 +262,7 @@ export function ManagingTables() {
       </CopyArea>
 
       <h3 class="text(xl gray-600) font-bold">Add Columns to an Existing Table</h3>
-      <span class="font-semibold">addColumns</span>(tableToAlter : string, columns: any): Add one or more columns to existing Table. The first parameter is a string of the Table Name you'd like to alter. The second parameter is an object. Each key of the object is a name of a column on your table. The value will be an array of strings, where the first element is the SQL datatype, the second element is the length(optional), and third and any other elements would be column constraints you'd like to add like NULL or NOT NULL, etc. 
+      <span class="font-semibold">addColumns</span>(tableToAlter : string, columns: any): Add one or more columns to an existing Table. The first parameter is a string of the Table Name you'd like to alter. The second parameter is an object. Each key of the object is a name of a column on your table. The value will be an array of strings, where the first element is the SQL datatype, the second element is the length(optional), and third and any other elements would be column constraints you'd like to add like NULL or NOT NULL, etc. 
       <CopyArea> 
       {copy2}
       </CopyArea>
@@ -367,7 +365,7 @@ newPerson.update();
       </CopyArea>
 
       <h3 class="text(xl gray-600) font-bold">Update a row</h3>
-      <span class="font-semibold">.update()</span> Note that once a foreign key has been set, *you CANNOT update it* 
+      <span class="font-semibold">.update()</span> Note that once a primary key has been set, *you CANNOT update it* 
       If you change properties on your instance and wish to update your database with the new values, invoke the <span class="font-semibold">.update()</span> method. 
       Change properties on instance:
 
@@ -431,7 +429,19 @@ export function ContributionAndBugs() {
       If you come across any bugs or issues while using Ponder feel free to report by simply opening a new issue on our Github.
 
       <h3 class="text(xl gray-600) font-bold">License</h3>
-      MIT License
+      MIT License<br></br>
+      <br></br>
+      Ponder <br></br>
+      <br></br>
+Copyright © 2022-2023 Corey McClendon-Brown, Stella Baek, Sara Brown, Sam Goldenberg, Matthew Connell<br></br>
+<br></br>
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br></br>
+<br></br>
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br></br>
+<br></br>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
 
       
       </p>
@@ -515,9 +525,7 @@ export function AboutDoc() {
 
         </div>
        
-        <p>
-          We are so cool.
-        </p>
+        
       </section>
     );
   }
